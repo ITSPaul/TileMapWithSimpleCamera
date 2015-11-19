@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using AnimatedSprite;
 
 namespace MonoTileMapEx
 {
@@ -26,6 +27,7 @@ namespace MonoTileMapEx
                 GraphicsDevice.Viewport.Height / 2);
             }
         }
+        PlayerWithWeapon player;
 
         List<Texture2D> tileTextures = new List<Texture2D>();
         int[,] tileMap = new int[,]  
