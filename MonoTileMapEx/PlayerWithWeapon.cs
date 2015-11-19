@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using TileManagerNS;
 
 namespace AnimatedSprite
 {
@@ -13,8 +14,11 @@ namespace AnimatedSprite
         {
             protected Game myGame;
             protected float playerVelocity = 6.0f;
-        private Projectile myProjectile;
-        protected CrossHair Site;
+            private Projectile myProjectile;
+            protected CrossHair Site;
+            private Tile currentTilePostion;
+            private Rectangle _drawRectangle;
+            
 
             public Vector2 CentrePos
             {
@@ -32,6 +36,35 @@ namespace AnimatedSprite
             set
             {
                 myProjectile = value;
+            }
+        }
+
+        public Tile CurrentTilePostion
+        {
+            get
+            {
+                return currentTilePostion;
+            }
+
+            set
+            {
+                currentTilePostion = value;
+            }
+        }
+
+        public Rectangle DrawRectangle
+        {
+            get
+            {
+                return new Rectangle(currentTilePostion.X,
+                    currentTilePostion.Y, 
+                    currentTilePostion.TileWidth,
+                    currentTilePostion.TileHeight);
+            }
+
+            set
+            {
+                _drawRectangle = value;
             }
         }
 

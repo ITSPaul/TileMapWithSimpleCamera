@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using AnimatedSprite;
 
-namespace MonoTileMapEx
+namespace TileManagerNS
 {
     /// <summary>
     /// This is the main type for your game
@@ -18,7 +18,7 @@ namespace MonoTileMapEx
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D _character;
+        Texture2D _charactertx;
         Vector2 ViewportCentre
         {
             get
@@ -124,7 +124,10 @@ namespace MonoTileMapEx
             Texture2D ground = Content.Load<Texture2D>("Tiles/se_free_ground_texture");
             tileTextures.Add(ground);
 
-            _character = Content.Load<Texture2D>("chaser");
+            _charactertx = Content.Load<Texture2D>("chaser");
+
+            player = new PlayerWithWeapon(this, _charactertx, Vector2.Zero, 1);
+
             debug = Content.Load<SpriteFont>("debug");
             string[] backTileNames = { "free", "grass", "ground" };
             string[] impassibleTiles = {"free","ground"};
@@ -139,6 +142,8 @@ namespace MonoTileMapEx
             _tManager.CurrentTile.TileName = "Character";
             _tManager.CurrentTile.X = 6;
             _tManager.CurrentTile.Y = 3;
+            player.CurrentTilePostion = _tManager.CurrentTile;
+
             _characterRect = new Rectangle(tileWidth * _tManager.CurrentTile.X, tileHeight * _tManager.CurrentTile.Y, tileWidth, tileHeight);
             // TODO: use this.Content to load your game content here
 
@@ -285,7 +290,7 @@ namespace MonoTileMapEx
                 }
             // draw the character
 
-            spriteBatch.Draw(_character, new Rectangle(_tManager.CurrentTile.X * tileWidth,
+            spriteBatch.Draw(_charactertx, new Rectangle(_tManager.CurrentTile.X * tileWidth,
                           _tManager.CurrentTile.Y * tileHeight,
                           tileWidth,
                           tileHeight),
@@ -338,7 +343,7 @@ namespace MonoTileMapEx
 
                 }
             // draw the character
-            spriteBatch.Draw(_character, new Rectangle(_tManager.CurrentTile.X * tileWidth - (int)cameraPosition.X,
+            spriteBatch.Draw(_charactertx, new Rectangle(_tManager.CurrentTile.X * tileWidth - (int)cameraPosition.X,
                           _tManager.CurrentTile.Y * tileHeight - (int)cameraPosition.Y,
                           tileWidth,
                           tileHeight),

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonoTileMapEx
+namespace TileManagerNS
 {
 #if WINDOWS || LINUX
     /// <summary>

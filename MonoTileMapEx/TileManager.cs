@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MonoTileMapEx
+namespace TileManagerNS
 {
     class TileManager
     {
@@ -87,6 +87,9 @@ namespace MonoTileMapEx
 
     class Tile 
     {
+        int _tileWidth;
+        int _tileHeight;
+
         int _id;
 
         public int Id
@@ -124,6 +127,31 @@ namespace MonoTileMapEx
           set { _y = value; }
         }
 
+        public int TileWidth
+        {
+            get
+            {
+                return _tileWidth;
+            }
+
+            set
+            {
+                _tileWidth = value;
+            }
+        }
+
+        public int TileHeight
+        {
+            get
+            {
+                return _tileHeight;
+            }
+
+            set
+            {
+                _tileHeight = value;
+            }
+        }
     }
 
     class TileLayer
