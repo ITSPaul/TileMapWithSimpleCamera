@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\chaser.png" />
+    <Content Include="Content\CrossHair.png" />
+    <Content Include="Content\explosion_strip8.png" />
+    <Content Include="Content\fireball_strip4.png" />
     <Content Include="Content\Tiles\se_free_dirt_texture.jpg" />
     <Content Include="Content\Tiles\se_free_grass_texture.jpg" />
     <Content Include="Content\Tiles\se_free_ground_texture.jpg" />
